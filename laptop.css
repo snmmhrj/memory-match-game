@@ -1,0 +1,23 @@
+body {
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    width: 50%;
+    margin: 1 auto;
+    color: crimson;
+}
+
+.deck {
+    width: 90%;
+}
+
+.deck .card {
+    width: 16vw;
+    height: 20vw;
+}
+
+.modalBody {
+    width: 80%;
+}

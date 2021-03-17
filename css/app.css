@@ -1,0 +1,249 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #ffffff url('../img/geometry2.png');
+    /* Background pattern from Subtle Patterns */
+    font-family: 'Coda', cursive;
+}
+
+header {
+    width: 300px;
+    text-align: center;
+    line-height: 4px;
+    border-radius: 10%;
+    margin-top: 15px;
+    background: linear-gradient(turquoise, skyblue);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(black, #000099, #66c2ff, #ffcccc, #ffeee6);;
+}
+
+h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
+
+/*
+ * Styles for the deck of cards
+ */
+
+.deck {
+    width: 560px;
+    min-height: 550px;
+    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 3em;
+}
+
+.deck .card {
+    height: 100px;
+    width: 100px;
+    background: #2e3d49;
+    font-size: 0;
+    color: #ffffff;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+.deck .card.open {
+    transform: rotateY(360deg);
+    transition-duration: 1s;
+    background: #02b3e4;
+    cursor: default;
+}
+
+.deck .card.show {
+    font-size: 33px;
+}
+
+.deck .card.match {
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    transform: translate3d(0, 0, 0);
+    cursor: default;
+    background: #02ccba;
+    font-size: 33px;
+}
+
+@keyframes shake {
+    10%,
+    90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+    20%,
+    80% {
+        transform: translate3d(2px, 0, 0);
+    }
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+    40%,
+    60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
+/*
+ * Styles for the Score Panel
+ */
+
+.score-panel {
+    background: linear-gradient(skyblue, turquoise);
+    border-radius: 10%;
+    text-align: left;
+    width: 345px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.score-panel .stars {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.score-panel .stars li {
+    list-style: none;
+    display: inline-block;
+}
+
+.score-panel .restart {
+    float: right;
+    cursor: pointer;
+}
+
+/*Styling the modal statistics panel*/
+.modalBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(23, 5, 29, 0.5);
+}
+
+.modalHeading {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 1.5rem;
+    border-bottom: 2px solid grey;
+}
+
+.modalTitle {
+    text-align: center;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.modalButtons {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+}
+
+.modalButton {
+    width: 60px;
+    height: 30px;
+}
+
+.hide {
+    display: none;
+}
+
+.modalBody {
+    position: relative;
+    width: 400px;
+    top: 40%;
+    left: 50%;
+    background: #bcd6e6;
+    transform: translate(-50%, -70%);
+    transform-origin: top center;
+    animation-name: swing;
+    animation-duration: 3s;
+}
+
+@keyframes swing {
+    20% {
+        transform: rotate3d(0, 0, 1, 15deg);
+    }
+    40% {
+        transform: rotate3d(0, 0, 1, -10deg);
+    }
+    60% {
+        transform: rotate3d(0, 0, 1, 5deg);
+    }
+    80% {
+        transform: rotate3d(0, 0, 1, -5deg);
+    }
+    to {
+        transform: rotate3d(0, 0, 1, 0deg);
+    }
+}
+
+.modalBackground .modalBody .summary{
+    text-align: center;
+}
+
+
+
+footer{
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.congradulations {
+    font-size: 50px;
+    text-align: center;
+    color: goldenrod;
+    animation-name: rotateTrophy;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes rotateTrophy {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
